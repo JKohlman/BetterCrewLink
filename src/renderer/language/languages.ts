@@ -1,4 +1,4 @@
-import translationENUS from '../../../static/locales/en-US/translation.json';
+import translationEN from '../../../static/locales/en/translation.json';
 import translationAR from '../../../static/locales/ar/translation.json';
 import translationAREG from '../../../static/locales/ar-EG/translation.json';
 import translationCA from '../../../static/locales/ca/translation.json';
@@ -26,7 +26,7 @@ import translationUK from '../../../static/locales/uk/translation.json';
 
 const languages = {
 	en: {
-		translation: translationENUS,
+		translation: translationEN,
 		name: 'English',
 	},
 	ar: {
