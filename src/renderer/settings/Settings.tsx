@@ -29,7 +29,7 @@ import languages from '../language/languages';
 import ServerURLInput from './ServerURLInput';
 import MuiDivider from '@material-ui/core/Divider';
 import PublicLobbySettings from './PublicLobbySettings';
-import { DefaultGamePlatforms, GamePlatform } from '../../common/GamePlatform';
+import { GamePlatform } from '../../common/GamePlatform';
 
 interface StyleInput {
 	open: boolean;
@@ -181,7 +181,6 @@ const store = new Store<ISettings>({
 				store.get('serverURL') === 'https://www.curseforge.com/among-us/all-mods/bettercrewlink-proximity-chat' ||
 				store.get('serverURL') === 'https://web.bettercrewl.ink' ||
 				store.get('serverURL') === 'https://obs.bettercrewlink.app'
-				
 			) {
 				store.set('serverURL', 'https://bettercrewl.ink');
 			}
@@ -431,59 +430,10 @@ const store = new Store<ISettings>({
 				publicLobby_mods: 'NONE',
 			},
 		},
-		launchPlatformSettings: {
-			type: 'object',
-			default: DefaultGamePlatforms,
-			additionalProperties: {
-				type: 'object',
-				properties: {
-					available: {
-						type: 'boolean',
-						default: false,
-					},
-					key: {
-						type: 'string',
-						default: '',
-					},
-					launchType: {
-						type: 'string',
-						default: '',
-					},
-					registryKey: {
-						type: 'string',
-						default: '',
-					},
-					registrySubKey: {
-						type: 'string',
-						default: '',
-					},
-					registryFindKey: {
-						type: 'string',
-						default: '',
-					},
-					registryKeyValue: {
-						type: 'string',
-						default: '',
-					},
-					run: {
-						type: 'string',
-						default: '',
-					},
-					exeFile: {
-						type: 'string',
-						default: '',
-					},
-					translateKey: {
-						type: 'string',
-						default: '',
-					},
-				},
-			},
-		},
 		launchPlatform: {
 			type: 'string',
-			default: GamePlatform.STEAM
-		}
+			default: GamePlatform.STEAM,
+		},
 	},
 });
 
@@ -859,7 +809,7 @@ const Settings: React.FC<SettingsProps> = function ({ t, open, onClose }: Settin
 								action: [setting, newValue],
 							});
 						}}
-						lobbySettings={canChangeLobbySettings? localLobbySettings : lobbySettings}
+						lobbySettings={canChangeLobbySettings ? localLobbySettings : lobbySettings}
 						canChange={canChangeLobbySettings}
 						className={classes.dialog}
 					/>
